@@ -1,0 +1,3 @@
+import sys
+
+print((lambda i, s, f, l: f(i, s, f, l))(0, True, (lambda i, s, f, l: 0 if (i == len(l)) else (((l[i] if s else 0) + f(i+1, s, f, l)) if (type(l[i]) == int) else f(i+1, l[i], f, l))), list(v for l in (filter((lambda v: v is not None), ((sum(((lambda k: int(line[i+4:k]) * int(line[k+1:j]))(line.find(",", i+5, j-1)) if (line[j] == ")" and all(c in "1234567890," for c in line[i+4:j]) and line[i+4:j].count(",") == 1) else 0) for j in range(min(len(line), i+12))) if line[i:i+4] == "mul(" else (True if (line[i:i+4] == "do()") else (False if (line[i:min(i+7, len(line))] == "don't()") else None))) for i in range(len(line) - 4))) for line in sys.stdin) for v in l)))
