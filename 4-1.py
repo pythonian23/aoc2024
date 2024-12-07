@@ -1,0 +1,3 @@
+import sys
+
+print((lambda l: sum(sum(v == ("X", "M", "A", "S") for v in map(tuple, zip(*([l[i+k][j], l[i+3-k][j], l[i][j+k], l[i][j+3-k], l[i+k][j+k], l[i+3-k][j+3-k], l[i+k][j+3-k], l[i+3-k][j+k]] for k in range(4))))) for i in range(len(l) - 3) for j in range(len(l[0]) - 3)) + sum(sum(v == ("X", "M", "A", "S") for v in map(tuple, zip(*([l[i+k][-1-j], l[i+3-k][-1-j]] for k in range(4))))) for i in range(len(l) - 3) for j in range(3)) + sum(sum(v == ("X", "M", "A", "S") for v in map(tuple, zip(*([l[-1-i][j+k], l[-1-i][j+3-k]] for k in range(4))))) for i in range(3) for j in range(len(l[0]) - 3)))([list(line.strip()) for line in sys.stdin]))
